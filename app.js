@@ -6,8 +6,19 @@ import errorMiddleware from './middlewares/error.middleware.js'
 import authRouter from './routes/auth.routes.js'
 import subscriptionRouter from './routes/subscription.routes.js'
 import userRouter from './routes/user.routes.js'
+import { rateLimit } from 'express-rate-limit'
 
 const app = express()
+
+const limiter = rateLimit({
+  windowMs: 60 * 1000, // 15 minutes
+  limit: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes).
+  standardHeaders: 'draft-8', // draft-6: `RateLimit-*` headers; draft-7 & draft-8: combined `RateLimit` header
+  legacyHeaders: false // Disable the `X-RateLimit-*` headers.
+})
+
+// Apply the rate limiting middleware to all requests.
+app.use(limiter)
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
