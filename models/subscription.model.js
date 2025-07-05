@@ -13,7 +13,7 @@ const subscriptionSchema = mongoose.Schema(
       type: Number,
       required: [true, 'Subscription price is required'],
       min: [0, 'Price must be greater than 0'],
-      max: [1000, 'Price must be less than 1000']
+      max: [5000, 'Price must be less than 1000']
     },
     currency: {
       type: String,
@@ -36,6 +36,7 @@ const subscriptionSchema = mongoose.Schema(
         'politics',
         'others'
       ],
+      lowercase: true,
       required: true
     },
     paymentMethod: {

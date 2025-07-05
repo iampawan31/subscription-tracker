@@ -8,8 +8,10 @@
     "dev": "nodemon app.js"
   },
   "dependencies": {
+    "@upstash/workflow": "^0.2.14",
     "bcryptjs": "^3.0.2",
     "cookie-parser": "~1.4.4",
+    "dayjs": "^1.11.13",
     "debug": "~2.6.9",
     "dotenv": "^17.0.1",
     "express": "~4.16.1",
@@ -17,7 +19,8 @@
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.17.0",
     "mongoose": "^8.16.1",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "nodemailer": "^7.0.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.30.1",
